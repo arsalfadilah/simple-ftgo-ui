@@ -1,8 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# SIMPLE FTGO UI
+
+Simple FTGO UI is a user interface (UI) designed using the Next.js framework and integrated with the Spring Boot application development platform. This interface is designed with the principle of simplicity to facilitate users in managing food orders in a food delivery service.
+
 
 ## Getting Started
 
-First, run the development server:
+First you should clone this spring boot application
+
+https://github.com/luthfimaajid/workshop79-microservices
+
+After That, install necessary package:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -14,21 +32,14 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+This project has a well-structured folder organization:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- /src/app: Contains the route app.
+- /src/services: Register your services.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For an example implementation, you can refer to the product service and product route.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Please note that the provided information is for illustrative purposes and may need to be adapted to fit your specific project requirements.
