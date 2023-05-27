@@ -6,7 +6,7 @@ Simple FTGO UI is a user interface (UI) designed using the Next.js framework and
 
 ## Getting Started
 
-First you should clone this spring boot application
+First you should clone this spring boot application and run services
 
 https://github.com/luthfimaajid/workshop79-microservices
 
