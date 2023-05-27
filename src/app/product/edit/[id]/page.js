@@ -1,15 +1,25 @@
 "use client"; // This is a client component 👈🏽
 
-import { storeProduct } from "@/services/ProductServices";
-import { useState } from "react";
+import { getOneProduct, storeProduct, updateProduct } from "@/services/ProductServices";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function ProductCreate() {
+export default function ProductCreate({params}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
 
   const router = useRouter();
+
+  useEffect(() => {
+    // console.log(params.id)
+    getOneProduct(params.id).then((data) => {      
+      setName(data.data.name);
+      setDescription(data.data.description);
+      setPrice(data.data.price);
+    });
+  }, []);
+    
 
   const handleSubmit = async (e) => {
     // e.preventDefault();
@@ -20,7 +30,7 @@ export default function ProductCreate() {
         price: price,
     }
     // console.log(formData.get("price"));
-    storeProduct(formData).then((data) => {
+    updateProduct(params.id, formData).then((data) => {
     //   console.log(data);
       router.push("/product");
     });
@@ -29,7 +39,7 @@ export default function ProductCreate() {
   return (
     <>
       <h1 className="text-2xl font-bold mb-5 text-center">
-        Form Create Product
+        Form Update Product
       </h1>
       <div className="flex justify-center">
         <div className="w-full max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -41,6 +51,7 @@ export default function ProductCreate() {
                 id="name"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
@@ -58,6 +69,7 @@ export default function ProductCreate() {
                 id="deksripsi"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
+                value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
               />
@@ -75,6 +87,7 @@ export default function ProductCreate() {
                 id="price"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
+                value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 required
               />
